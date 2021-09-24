@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: akspythonapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akspythonapp
+  template:
+    metadata:
+      labels:
+        app: akspythonapp 
+    spec:
+      containers:
+        - name: akspythonapp 
+          image: mycontainerregistrypy.azurecr.io/akspythonapp
+          ports:
+          - containerPort: 8080
